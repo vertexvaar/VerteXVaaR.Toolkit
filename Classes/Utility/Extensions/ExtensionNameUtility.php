@@ -15,7 +15,6 @@ class ExtensionNameUtility
     public static function guessExtensionNameFromNamespace($namespace)
     {
         $namespace = substr($namespace, strpos($namespace, '\\') + 1);
-        $namespace = substr($namespace, 0, strpos($namespace, '\\'));
-        return GeneralUtility::camelCaseToLowerCaseUnderscored($namespace);
+        return GeneralUtility::camelCaseToLowerCaseUnderscored(substr($namespace, 0, strpos($namespace, '\\')));
     }
 }
