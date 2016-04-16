@@ -12,8 +12,10 @@ class AdvancedActionController extends ActionController
     use LogTrait;
 
     /**
-     * @param string $name
-     * @param mixed $value
+     * Sets defaults for an argument, if no argument values were not submitted by the user
+     *
+     * @param string $name Name of the argument
+     * @param mixed $value The default value(s)
      */
     protected function setDefaultsForArgument($name, $value)
     {
