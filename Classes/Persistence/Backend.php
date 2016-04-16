@@ -23,6 +23,17 @@ class Backend
     }
 
     /**
+     * @param string $table
+     * @param string $where
+     * @param string $field
+     * @return int
+     */
+    public function countRows($table, $where = '1=1', $field = 'uid')
+    {
+        return (int)$this->getDatabase()->exec_SELECTcountRows($field, $table, $where);
+    }
+
+    /**
      * @return DatabaseConnection
      * @SuppressWarnings("PHPMD.Superglobals")
      */
