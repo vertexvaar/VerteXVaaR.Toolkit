@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Persistence;
+namespace VerteXVaaR\T3Toolkit\Persistence;
 
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 

@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Cache;
+namespace VerteXVaaR\T3Toolkit\Cache;
 
 /**
  * Class VolatileCacheTrait

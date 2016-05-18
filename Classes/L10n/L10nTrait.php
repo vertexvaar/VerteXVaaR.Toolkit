@@ -1,8 +1,8 @@
 <?php
-namespace VerteXVaaR\Toolkit\L10n;
+namespace VerteXVaaR\T3Toolkit\L10n;
 
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use VerteXVaaR\Toolkit\Utility\Extensions\ExtensionNameUtility;
+use VerteXVaaR\T3Toolkit\Utility\Extensions\ExtensionNameUtility;
 
 /**
  * Translate with less hassle and a default value.

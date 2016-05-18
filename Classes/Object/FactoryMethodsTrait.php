@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Object;
+namespace VerteXVaaR\T3Toolkit\Object;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
@@ -9,7 +9,6 @@ use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
  */
 trait FactoryMethodsTrait
 {
-
     /**
      * Factory method to create an instance of this class by a given property array
      *

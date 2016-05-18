@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Utility;
+namespace VerteXVaaR\T3Toolkit\Utility;
 
 use TYPO3\CMS\Core\Core\Bootstrap;
 

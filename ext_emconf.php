@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'VerteXVaaR Toolkit',
-    'description' => 'Utilities and Class with often used features. Makes development faster',
+    'title' => 'VerteXVaaR TYPO3 Toolkit',
+    'description' => 'Some general stuff for TYPO3. Should enhance your development',
     'category' => 'misc',
     'constraints' => [
         'depends' => [

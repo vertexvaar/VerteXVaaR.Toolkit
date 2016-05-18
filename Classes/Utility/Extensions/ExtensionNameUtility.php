@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Utility\Extensions;
+namespace VerteXVaaR\T3Toolkit\Utility\Extensions;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 

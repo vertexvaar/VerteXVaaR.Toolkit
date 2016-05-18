@@ -1,5 +1,5 @@
 <?php
-namespace VerteXVaaR\Toolkit\Log;
+namespace VerteXVaaR\T3Toolkit\Log;
 
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;

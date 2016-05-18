@@ -1,10 +1,10 @@
 <?php
-namespace VerteXVaaR\Toolkit\Controller;
+namespace VerteXVaaR\T3Toolkit\Controller;
 
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter;
-use VerteXVaaR\Toolkit\Log\LogTrait;
+use VerteXVaaR\T3Toolkit\Log\LogTrait;
 
 /**
  * Class AdvancedActionController
