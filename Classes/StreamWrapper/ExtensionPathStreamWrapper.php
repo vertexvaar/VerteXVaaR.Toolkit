@@ -33,7 +33,7 @@ class ExtensionPathStreamWrapper
     public function dir_opendir($path, $options)
     {
         // @codingStandardsIgnoreEnd
-        $this->handle = opendir($this->expandPath($path), $this->context);
+        $this->handle = opendir(self::expandPath($path), $this->context);
         return is_resource($this->context);
     }
 
@@ -99,7 +99,7 @@ class ExtensionPathStreamWrapper
          * GeneralUtility::mkdir is not used, because $mode would be overwritten by it.
          * A Stream specific option to use GU instead will most likely come ;)
          */
-        return mkdir($this->expandPath($path), $mode, $options & STREAM_MKDIR_RECURSIVE, $this->context);
+        return mkdir(self::expandPath($path), $mode, $options & STREAM_MKDIR_RECURSIVE, $this->context);
     }
 
     /**
@@ -112,7 +112,7 @@ class ExtensionPathStreamWrapper
      */
     public function rename($oldPath, $newPath)
     {
-        return rename($this->expandPath($oldPath), $this->expandPath($newPath), $this->context);
+        return rename(self::expandPath($oldPath), self::expandPath($newPath), $this->context);
     }
 
     /**
@@ -129,7 +129,7 @@ class ExtensionPathStreamWrapper
      */
     public function rmdir($path, $options)
     {
-        return rmdir($this->expandPath($path), $this->context);
+        return rmdir(self::expandPath($path), $this->context);
     }
 
     /**
@@ -152,7 +152,7 @@ class ExtensionPathStreamWrapper
     public function stream_open($path, $mode, $options, &$openedPath)
     {
         // @codingStandardsIgnoreEnd
-        $absolutePath = $this->expandPath($path);
+        $absolutePath = self::expandPath($path);
         $this->handle = fopen($absolutePath, $mode);
 
         $success = is_resource($this->handle);
@@ -225,7 +225,7 @@ class ExtensionPathStreamWrapper
     public function stream_metadata($path, $option, $value)
     {
         // @codingStandardsIgnoreEnd
-        $path = $this->expandPath($path);
+        $path = self::expandPath($path);
         if (STREAM_META_TOUCH === $option) {
             return call_user_func_array('touch', [-1 => $path] + $value);
         } elseif (STREAM_META_OWNER_NAME === $option || STREAM_META_OWNER === $option) {
@@ -379,7 +379,7 @@ class ExtensionPathStreamWrapper
      */
     public function unlink($path)
     {
-        return unlink($this->expandPath($path), $this->context);
+        return unlink(self::expandPath($path), $this->context);
     }
 
     /**
@@ -396,7 +396,7 @@ class ExtensionPathStreamWrapper
     public function url_stat($path, $flags)
     {
         // @codingStandardsIgnoreEnd
-        $path = $this->expandPath($path);
+        $path = self::expandPath($path);
 
         $quiet = STREAM_URL_STAT_QUIET === ($flags & STREAM_URL_STAT_QUIET);
 
@@ -423,15 +423,20 @@ class ExtensionPathStreamWrapper
      * @param string $path
      * @return string
      */
-    protected function expandPath($path)
+    public static function expandPath($path)
     {
         // cut away "EXT://"
         $rawPath = mb_substr($path, 6);
 
         // split key and trailing path at first slash
         $pos = mb_strpos($rawPath, '/') ?: null;
-        $key = mb_substr($rawPath, 0, $pos);
-        $rest = mb_substr($rawPath, $pos + 1);
+        if (null === $pos) {
+            $key = mb_substr($rawPath, 0);
+            $rest  = '';
+        } else {
+            $key = mb_substr($rawPath, 0, $pos);
+            $rest = mb_substr($rawPath, $pos + 1);
+        }
 
         return ExtensionManagementUtility::extPath($key, $rest);
     }
